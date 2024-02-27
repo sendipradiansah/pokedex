@@ -1,0 +1,39 @@
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    .contentCard{
+        width: 100%;
+        max-width: 1200px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        // background-color: red;
+        column-gap: 20px;
+        row-gap: 50px;
+    }
+    .loadButton{
+        width: 230px;
+        padding: 15px 20px;
+        border-radius: 10px;
+        background-color: #34aeeb;
+        cursor: pointer;
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.loading{
+    // background-image: url(../images/pokeball.gif);
+    background-size: cover;
+    background-repeat: repeat-y;
+    z-index: 1000;
+    width: 100%;
+    opacity: 0.1;
+    // height: 100%;
+}
