@@ -7,22 +7,22 @@ import { formatNumber } from "../Helper/Helper";
 const colorType = (name) => {
     let color = '{{backgroundColor: "blue"}}';
     switch(name){
-        case "fire":
+        case "fire", "flash-fire", "static":
             color = "orange";
         break;
-        case "grass":
+        case "grass", "intimidate":
             color = "green";
         break;
-        case "poison":
+        case "poison", "rivalry":
             color = "purple";
         break;
-        case "water":
+        case "water", "sand-force":
             color = "blue";
         break;
-        case "flying":
-            color = "orange";
+        case "flying", "shed-skin":
+            color = "#873e23";
         break;
-        case "bug":
+        case "bug", "lightning-rod", "arena-trap":
             color = "#990000"
         break;
         default: 
@@ -82,30 +82,45 @@ const Detail = () => {
                     <div className="desc">
                         <div className="boxInfo">
                             <div className="left">
-                                <div style={{fontSize: "14px", color: "white"}}>Height</div>
+                                <div style={{fontSize: "15px", color: "white"}}>Height</div>
                                 <div style={{fontSize: "16x", color: "black"}}>{item.height}"</div>
-                                <div style={{fontSize: "14px", color: "white"}}>Weight</div>
+                                <div style={{fontSize: "15px", color: "white"}}>Weight</div>
                                 <div style={{fontSize: "16px", color: "black"}}>{item.weight} lbs</div>
                             </div>
                             <div className="right">
-                                <div style={{fontSize: "14px", color: "white"}}>Abilities</div>
+                                <div style={{fontSize: "15px", color: "white"}}>Abilities</div>
                                 {
                                     item.abilities.map((item) => {
                                         return(
-                                            <div style={{fontSize: "14px", color: "black"}}>{item.ability.name.charAt(0).toUpperCase()}{item.ability.name.slice(1)}</div>
+                                            <div style={{fontSize: "16px", color: "black"}}>{item.ability.name.charAt(0).toUpperCase()}{item.ability.name.slice(1)}</div>
                                         )
                                     })
                                 }
                             </div>
                         </div>
                         <div>Type</div>
-                        <div className="typeContent">
+                        <div className="infoContent">
                                 {
                                     item.types.length > 0 ?
                                     item.types.map((item) => {
                                         return(
-                                                <div className="type" style={{backgroundColor: colorType(item.type.name)}}>
+                                                <div className="info" style={{backgroundColor: colorType(item.type.name)}}>
                                                     {item.type.name.charAt(0).toUpperCase()}{item.type.name.slice(1)}
+                                                </div>
+                                        )
+                                    })
+                                    : 
+                                    null
+                                }
+                        </div>
+                        <div>Abilities</div>
+                        <div className="infoContent">
+                                {
+                                    item.abilities.length > 0 ?
+                                    item.abilities.map((item) => {
+                                        return(
+                                                <div className="info" style={{backgroundColor: colorType(item.ability.name)}}>
+                                                    {item.ability.name.charAt(0).toUpperCase()}{item.ability.name.slice(1)}
                                                 </div>
                                         )
                                     })
